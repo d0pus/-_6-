@@ -1,0 +1,13 @@
+@startuml
+actor Пользователь
+participant TextEditor
+participant ImageLoader
+database Database
+
+Пользователь -> TextEditor: Запрос вставки изображения
+TextEditor -> ImageLoader: Загрузить изображение
+ImageLoader -> Database: Сохранить изображение
+Database --> ImageLoader: ID изображения
+ImageLoader --> TextEditor: ID изображения
+TextEditor --> Пользователю: Предложить вставить изображение
+@enduml
