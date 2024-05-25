@@ -10,4 +10,14 @@ ImageLoader -> Database: Сохранить изображение
 Database --> ImageLoader: ID изображения
 ImageLoader --> TextEditor: ID изображения
 TextEditor --> Пользователю: Предложить вставить изображение
+
+Пользователь -> TextEditor: Запрос сохранения
+TextEditor -> Database: Сохранить изменения
+Database --> TextEditor: Подтверждение сохранения
+TextEditor --> Пользователю: Сообщение об успешном сохранении
+
+Пользователь -> TextEditor: Запрос загрузки
+TextEditor -> Database: Получить документ
+Database --> TextEditor: ID документа
+TextEditor --> Пользователю: Предложить загрузить документ
 @enduml
